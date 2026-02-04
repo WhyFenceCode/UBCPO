@@ -28,14 +28,21 @@ def DriverControl():
             MotorDrive(25)
         elif bottomButtonPressed:
             MotorDrive(-20)
+        else:
+            MotorDrive(0)
     MAX = GetDistance()
     while not centerButtonPressed:
         if topButtonPressed:
             MotorDrive(25)
         elif bottomButtonPressed:
             MotorDrive(-20)
+        else:
+            MotorDrive(0)
     MIN = GetDistance()
     while not centerButtonPressed:
-        currentDistance = GetDistance() + 10
-        targetDistance = MIN + 10
-        
+        currentDistance = GetDistance() + DISTANCEHOLDOFFSET
+        targetDistance = MIN + DISTANCEHOLDOFFSET
+        deviation = PercentDeviation(currentDistance, targetDistance)
+        MotorDrive(deviation)
+    MotorDrive(0)
+    
