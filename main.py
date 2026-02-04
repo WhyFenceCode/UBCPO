@@ -9,8 +9,12 @@ MAX = 0
 MIN = 0
 DISTANCEHOLDOFFSET = 10 #offset to reduce the level of %dev while holding position. increase to lower responsiveness
 
+def clamp(value, minimum, maximum):
+    return max(minimum, min(value, maximum))
+
+
 def PercentDeviation(current, expected):
-    return (expected - current) / expected
+    return clamp((expected - current) / expected, -1, 1)
 
 def MotorDrive(speed):
     clockwiseMotor = speed
