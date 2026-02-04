@@ -7,7 +7,7 @@ TIME_UP = 27.5 #seconds
 STARTSPEED = 0.001 #m/s
 MAX = 0
 MIN = 0
-DISTANCEHOLDOFFSET = 10 #offset 
+DISTANCEHOLDOFFSET = 10 #offset to reduce the level of %dev while holding position. increase to lower responsiveness
 
 def PercentDeviation(current, expected):
     return (expected - current) / expected
