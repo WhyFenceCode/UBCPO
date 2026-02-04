@@ -78,7 +78,7 @@ def AutonomousControl():
         currentDistance = GetDistance()
         targetSpeed = speed_target(currentDistance)
         deviation = PercentDeviation(currentSpeed, targetSpeed)
-        MotorDrive(deviation)
+        MotorDrive(deviation * 100)
     MotorDrive(0)
 
 DriverControl()
