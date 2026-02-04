@@ -4,6 +4,7 @@ topButtonPressed = False
 bottomButtonPressed = False
 
 TIME_UP = 27.5 #seconds
+TIME = TIME_UP
 STARTSPEED = 0.001 #m/s
 MAX = 0
 MIN = 0
@@ -73,6 +74,7 @@ def DriverControl():
     MotorDrive(0)
  
 def AutonomousControl():
+    TIME = TIME_UP
     while GetDistance() < MAX:
         currentSpeed = GetSpeed()
         currentDistance = GetDistance()
